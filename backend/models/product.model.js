@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import updatePriceMiddleware from "../middlewares/updatePriceMiddleware.js";
 
 const productSchema = new mongoose.Schema(
   {
@@ -25,13 +26,8 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-// Middleware to update the updatedPrice field
-productSchema.pre("save", function (next) {
-  this.updatedPrice = this.discount
-    ? this.price - (this.price * this.discount) / 100
-    : this.price;
-  next();
-});
+// Apply the middleware to the schema
+productSchema.pre("save", updatePriceMiddleware);
 
 const Product = mongoose.model("Product", productSchema);
 
