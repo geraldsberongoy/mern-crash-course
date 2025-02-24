@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import ProductForm from "../components/ProductForm.jsx";
 
 const EditPage = () => {
   const { id } = useParams();
@@ -29,14 +30,6 @@ const EditPage = () => {
     fetchProduct();
   }, [id]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setProduct((prevProduct) => ({
-      ...prevProduct,
-      [name]: value,
-    }));
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -48,81 +41,12 @@ const EditPage = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="mb-4 text-2xl font-bold">Edit Product</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="mb-2 block text-sm font-bold" htmlFor="name">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={product.name}
-            onChange={handleChange}
-            className="w-full rounded border border-gray-300 p-2"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="mb-2 block text-sm font-bold" htmlFor="price">
-            Price
-          </label>
-          <input
-            type="text"
-            id="price"
-            name="price"
-            value={product.price}
-            onChange={handleChange}
-            className="w-full rounded border border-gray-300 p-2"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="mb-2 block text-sm font-bold"
-            htmlFor="updatedPrice"
-          >
-            Updated Price
-          </label>
-          <input
-            type="text"
-            id="updatedPrice"
-            name="updatedPrice"
-            value={product.updatedPrice}
-            onChange={handleChange}
-            className="w-full rounded border border-gray-300 p-2"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="mb-2 block text-sm font-bold" htmlFor="discount">
-            Discount
-          </label>
-          <input
-            type="text"
-            id="discount"
-            name="discount"
-            value={product.discount}
-            onChange={handleChange}
-            className="w-full rounded border border-gray-300 p-2"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="mb-2 block text-sm font-bold" htmlFor="image">
-            Image URL
-          </label>
-          <input
-            type="text"
-            id="image"
-            name="image"
-            value={product.image}
-            onChange={handleChange}
-            className="w-full rounded border border-gray-300 p-2"
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Save Changes
-        </button>
-      </form>
+    <div className="relative mt-16 flex flex-1 items-center justify-center">
+      <ProductForm
+        product={product}
+        setProduct={setProduct}
+        handleSubmit={handleSubmit}
+      />
     </div>
   );
 };
