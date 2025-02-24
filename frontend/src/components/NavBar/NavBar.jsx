@@ -3,12 +3,12 @@ import { faSquarePlus } from "@fortawesome/free-regular-svg-icons";
 import ThemeController from "../ThemeController/ThemeController";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ toggleTheme }) => {
   return (
-    <div className="navbar bg-base-100 flex-none shadow-sm">
+    <div className="navbar bg-base-100 flex-none shadow-lg">
       <div className="flex-1">
         <Link to={"/"}>
-          <p className="text-secondary pl-5 text-2xl font-semibold">
+          <p className="text-primary pl-5 text-2xl font-semibold">
             PRODUCT STORE
           </p>
         </Link>
@@ -20,7 +20,7 @@ const NavBar = () => {
           </button>
         </Link>
         <button className="btn btn-square btn-ghost">
-          <ThemeController />
+          <ThemeController toggleTheme={toggleTheme} />
         </button>
       </div>
     </div>
