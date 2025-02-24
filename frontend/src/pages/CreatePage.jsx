@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import AddAlert from "../components/Alert/AddAlert.jsx";
 
 const CreatePage = () => {
   const [product, setProduct] = useState({
@@ -8,6 +9,10 @@ const CreatePage = () => {
     discount: "",
     image: "",
   });
+
+  const [productName, setProductName] = useState("");
+
+  const [alertVisible, setAlertVisible] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,20 +31,31 @@ const CreatePage = () => {
       );
       console.log("Product created:", response.data);
 
-      // Clear the form after creating the product
+      // Show the alert
+      setAlertVisible(true);
+      setProductName(product.name);
+
       setProduct({
         name: "",
         price: "",
         discount: "",
         image: "",
       });
+
+      // Hide the alert after 3 seconds
+      setTimeout(() => {
+        setAlertVisible(false);
+      }, 3000);
     } catch (error) {
       console.error("Error creating product:", error);
     }
   };
 
   return (
-    <div className="flex flex-1 items-center justify-center">
+    <div className="relative flex flex-1 items-center justify-center">
+      {alertVisible && (
+        <AddAlert productName={productName} setProduct={setProduct} />
+      )}
       <form
         onSubmit={handleSubmit}
         className="fieldset bg-base-200 border-base-300 rounded-box h-auto w-xs border p-4"
