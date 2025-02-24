@@ -5,10 +5,10 @@ import HomePage from "./pages/HomePage";
 import CreatePage from "./pages/CreatePage";
 
 const App = () => {
-  const [theme, setTheme] = useState("silk");
+  const [theme, setTheme] = useState("light");
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "silk" ? "dracula" : "silk"));
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return (
