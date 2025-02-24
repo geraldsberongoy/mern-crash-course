@@ -1,17 +1,17 @@
-const Card = () => {
+const Card = ({ product }) => {
   return (
-    <div className="card bg-base-100 max-w-72 shadow-sm">
-      <div className="card-body">
-        <h2 className="card-title">Card Title</h2>
-        <p>
-          A card component has a figure, a body part, and inside body there are
-          title and actions parts
-        </p>
+    <div className="card bg-base-200 h-11/12 max-w-64 shadow-sm">
+      <div className="card-body flex h-1/2">
+        <h2 className="card-title">{product.name}</h2>
+        <p>Price: ${product.price}</p>
+        {product.discount && <p>Discount: {product.discount}%</p>}
+        <p>Updated Price: ${product.updatedPrice}</p>
       </div>
-      <figure>
+      <figure className="h-1/2">
         <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          alt="Shoes"
+          src={product.image}
+          alt={product.name}
+          className="h-full w-full object-cover"
         />
       </figure>
     </div>
