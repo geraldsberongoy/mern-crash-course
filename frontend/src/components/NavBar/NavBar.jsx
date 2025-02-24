@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = ({ toggleTheme }) => {
   return (
-    <div className="navbar bg-base-100 flex-none shadow-lg">
+    <div className="navbar bg-base-100 fixed z-50 flex-none shadow-lg">
       <div className="flex-1">
         <Link to={"/"}>
           <p className="text-primary pl-5 text-2xl font-bold">PRODUCT STORE</p>

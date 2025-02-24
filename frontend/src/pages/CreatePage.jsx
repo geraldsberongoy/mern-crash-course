@@ -52,7 +52,7 @@ const CreatePage = () => {
   };
 
   return (
-    <div className="relative flex flex-1 items-center justify-center">
+    <div className="relative mt-16 flex flex-1 items-center justify-center">
       {alertVisible && (
         <AddAlert productName={productName} setProduct={setProduct} />
       )}
