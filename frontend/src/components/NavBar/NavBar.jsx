@@ -11,15 +11,21 @@ const NavBar = ({ toggleTheme }) => {
           <p className="text-primary pl-5 text-2xl font-bold">PRODUCT STORE</p>
         </Link>
       </div>
-      <div className="flex-none space-x-2 px-2">
+      <div className="flex-none space-x-2 px-8">
         <Link to="/create">
-          <button className="btn btn-square btn-ghost">
+          <div
+            className="btn btn-square btn-ghost tooltip tooltip-bottom"
+            data-tip="Create Product"
+          >
             <FontAwesomeIcon size="2xl" icon={faSquarePlus} />
-          </button>
+          </div>
         </Link>
-        <button className="btn btn-square btn-ghost">
+        <div
+          className="btn btn-square btn-ghost tooltip tooltip-bottom"
+          data-tip="Toggle Theme"
+        >
           <ThemeController toggleTheme={toggleTheme} />
-        </button>
+        </div>
       </div>
     </div>
   );
