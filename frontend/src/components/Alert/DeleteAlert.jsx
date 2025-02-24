@@ -2,7 +2,7 @@ import React from "react";
 
 const DeleteAlert = ({ selectedProduct }) => {
   return (
-    <div role="alert" className="alert alert-error fixed right-2 bottom-2">
+    <div role="alert" className="alert alert-error fixed right-3 bottom-3">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-6 w-6 shrink-0 stroke-current"
@@ -16,7 +16,10 @@ const DeleteAlert = ({ selectedProduct }) => {
           d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
         />
       </svg>
-      <span>Error! Task failed successfully.</span>
+      <p>
+        The item <span className="font-bold">{selectedProduct.name}</span>{" "}
+        deleted successfully.
+      </p>
     </div>
   );
 };
