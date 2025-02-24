@@ -20,7 +20,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="flex flex-1 items-center justify-center py-10">
+    <div className="flex flex-1 items-center justify-center py-6">
       <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {products.map((product) => (
           <Card key={product._id} product={product} />
