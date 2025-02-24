@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+import { Link } from "react-router-dom";
 
 const Card = ({
   product,
@@ -14,20 +14,21 @@ const Card = ({
     <div className="card bg-base-200 card-lg group min-w-68 shadow-xl">
       <figure className="card-image bg-base-300 relative h-52 w-full">
         <div className="absolute top-2 right-2 flex opacity-0 transition-opacity group-hover:opacity-100">
-          <div
-            className="btn btn-square btn-ghost text-primary tooltip tooltip-left"
-            data-tip="Edit Product"
-          >
-            <FontAwesomeIcon
-              size="xl"
-              icon={faPenToSquare}
-              onClick={() => {
-                setSelectedProductId(product._id);
-                setIsModalOpen(true);
-                setSelectedProduct(product);
-              }}
-            />
-          </div>
+          <Link to={"/edit/" + product._id}>
+            <div
+              className="btn btn-square btn-ghost text-primary tooltip tooltip-left"
+              data-tip="Edit Product"
+            >
+              <FontAwesomeIcon
+                size="xl"
+                icon={faPenToSquare}
+                onClick={() => {
+                  setSelectedProductId(product._id);
+                  setSelectedProduct(product);
+                }}
+              />
+            </div>
+          </Link>
           <div
             className="btn btn-square btn-ghost text-primary tooltip tooltip-left"
             data-tip="Delete Product"
