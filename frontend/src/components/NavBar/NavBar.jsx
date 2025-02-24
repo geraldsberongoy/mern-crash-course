@@ -8,9 +8,7 @@ const NavBar = ({ toggleTheme }) => {
     <div className="navbar bg-base-100 flex-none shadow-lg">
       <div className="flex-1">
         <Link to={"/"}>
-          <p className="text-primary pl-5 text-2xl font-semibold">
-            PRODUCT STORE
-          </p>
+          <p className="text-primary pl-5 text-2xl font-bold">PRODUCT STORE</p>
         </Link>
       </div>
       <div className="flex-none space-x-2 px-2">
