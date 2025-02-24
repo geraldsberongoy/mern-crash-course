@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../components/Card/Card";
 import Modal from "../components/Modal/Modal";
+import DeleteAlert from "../components/Alert/DeleteAlert";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleteAlertVisible, setIsDeleteAlertVisible] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -35,6 +37,12 @@ const HomePage = () => {
         prevProducts.filter((product) => product._id !== selectedProductId),
       );
       setIsModalOpen(false); // Close the modal after deletion
+      setIsDeleteAlertVisible(true); // Show the delete alert
+
+      // Hide the alert after 3 seconds
+      setTimeout(() => {
+        setIsDeleteAlertVisible(false);
+      }, 2000);
     } catch (error) {
       console.error("Error deleting product:", error);
     }
@@ -60,6 +68,10 @@ const HomePage = () => {
           handleDelete={handleDelete}
           selectedProduct={selectedProduct}
         />
+      )}
+
+      {isDeleteAlertVisible && (
+        <DeleteAlert selectedProduct={selectedProduct} />
       )}
     </div>
   );
