@@ -20,12 +20,12 @@ const Modal = ({ setIsModalOpen, handleDelete, selectedProduct }) => {
         <p className="mb-4">Are you sure you want to delete this item?</p>
         <div className="flex w-full justify-center gap-4">
           <button
-            className="btn btn-neutral"
+            className="btn btn-soft"
             onClick={() => setIsModalOpen(false)}
           >
             No, Keep It.
           </button>
-          <button className="btn btn-error" onClick={handleDelete}>
+          <button className="btn btn-soft btn-error" onClick={handleDelete}>
             Yes, Delete it.
           </button>
         </div>

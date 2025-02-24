@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { set } from "mongoose";
 
 const Card = ({
   product,
@@ -10,18 +9,23 @@ const Card = ({
   setSelectedProduct,
 }) => {
   return (
-    <div className="card bg-base-200 card-lg border-accent min-w-68 shadow-xl">
-      <figure className="card-image bg-base-300 relative h-52 w-full">
-        <FontAwesomeIcon
-          size="lg"
-          icon={faTrash}
-          className="text-primary absolute top-5 right-5"
-          onClick={() => {
-            setSelectedProductId(product._id);
-            setIsModalOpen(true);
-            setSelectedProduct(product);
-          }}
-        />
+    <div className="card bg-base-200 card-lg border-accent group relative min-w-68 shadow-xl">
+      <figure className="card-image bg-base-300 h-52 w-full">
+        <div
+          className="btn btn-square btn-ghost text-primary tooltip tooltip-left absolute top-2 right-2 opacity-0 transition-opacity group-hover:opacity-100"
+          data-tip="Delete Product"
+        >
+          <FontAwesomeIcon
+            size="xl"
+            icon={faTrash}
+            onClick={() => {
+              setSelectedProductId(product._id);
+              setIsModalOpen(true);
+              setSelectedProduct(product);
+            }}
+          />
+        </div>
+
         <img
           src={product.image}
           alt={product.name}
