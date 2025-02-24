@@ -16,7 +16,6 @@ app.use(express.urlencoded({ extended: false })); // allow us to accept form dat
 
 // Use CORS middleware
 const corsOptions = {
-  origin: "http://localhost:5173", //frontend url
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
