@@ -1,10 +1,27 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-const Card = ({ product }) => {
+import { set } from "mongoose";
+
+const Card = ({
+  product,
+  setProducts,
+  setIsModalOpen,
+  setSelectedProductId,
+  setSelectedProduct,
+}) => {
   return (
-    <div className="card bg-base-100 card-lg border-accent relative max-w-68 shadow-xl">
-      {/* <FontAwesomeIcon icon={faTrash} /> */}
-      <figure className="card-image bg-base-300 h-52 w-full">
+    <div className="card bg-base-100 card-lg border-accent max-w-68 shadow-xl">
+      <figure className="card-image bg-base-300 relative h-52 w-full">
+        <FontAwesomeIcon
+          size="lg"
+          icon={faTrash}
+          className="text-primary absolute top-5 right-5"
+          onClick={() => {
+            setSelectedProductId(product._id);
+            setIsModalOpen(true);
+            setSelectedProduct(product);
+          }}
+        />
         <img
           src={product.image}
           alt={product.name}
