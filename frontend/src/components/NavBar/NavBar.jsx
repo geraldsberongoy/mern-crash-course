@@ -8,10 +8,12 @@ const NavBar = () => {
     <div className="navbar bg-base-100 flex-none shadow-sm">
       <div className="flex-1">
         <Link to={"/"}>
-          <p className="btn btn-ghost text-xl">PRODUCT STORE</p>
+          <p className="text-secondary pl-5 text-2xl font-semibold">
+            PRODUCT STORE
+          </p>
         </Link>
       </div>
-      <div className="flex-none">
+      <div className="flex-none space-x-2 px-2">
         <Link to="/create">
           <button className="btn btn-square btn-ghost">
             <FontAwesomeIcon size="2xl" icon={faSquarePlus} />
