@@ -10,7 +10,7 @@ const Card = ({
   setSelectedProduct,
 }) => {
   return (
-    <div className="card bg-base-200 card-lg border-accent max-w-68 shadow-xl">
+    <div className="card bg-base-200 card-lg border-accent min-w-68 shadow-xl">
       <figure className="card-image bg-base-300 relative h-52 w-full">
         <FontAwesomeIcon
           size="lg"
