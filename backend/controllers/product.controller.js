@@ -12,6 +12,18 @@ export const getProducts = async (req, res, next) => {
   }
 };
 
+export const getProduct = async (req, res, next) => {
+  const { id } = req.params; // user will send this data
+  try {
+    const product = await Product.findById(id);
+    console.log("Product fetched:", product.name);
+    res.status(200).json({ success: true, data: product });
+  } catch (error) {
+    console.error(`Product with id ${id} cant be found  `, error.message);
+    res.status(500).json({ success: false, message: "Server Error " });
+  }
+};
+
 export const createProduct = async (req, res, next) => {
   const product = req.body; // user will send this data
   if (!product.name || !product.price || !product.image) {
