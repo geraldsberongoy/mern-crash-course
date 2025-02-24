@@ -91,7 +91,7 @@ const CreatePage = () => {
           onChange={handleChange}
         />
 
-        <button type="submit" className="btn btn-primary mt-4">
+        <button type="submit" className="btn btn-success mt-4">
           Create
         </button>
       </form>
