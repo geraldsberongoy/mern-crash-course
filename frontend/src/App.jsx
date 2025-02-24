@@ -6,6 +6,10 @@ import CreatePage from "./pages/CreatePage";
 import EditPage from "./pages/EditPage";
 
 const App = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  console.log("API URL:", apiUrl);
+
   const [theme, setTheme] = useState("light");
 
   const toggleTheme = () => {

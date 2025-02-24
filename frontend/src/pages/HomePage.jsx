@@ -14,7 +14,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/products");
+        const response = await axios.get("/api/products");
         setProducts(response.data.data);
         console.log("Products fetched:", response.data.data);
       } catch (error) {
@@ -27,9 +27,7 @@ const HomePage = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await axios.delete(
-        `http://localhost:8080/api/products/${selectedProductId}`,
-      );
+      const response = await axios.delete(`/api/products/${selectedProductId}`);
       console.log("Product deleted:", response.data);
 
       // Remove the product from the state
