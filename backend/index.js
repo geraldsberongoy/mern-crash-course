@@ -15,7 +15,12 @@ app.use(express.json()); // allow us to accept JSON data in a body of a request
 app.use(express.urlencoded({ extended: false })); // allow us to accept form data
 
 // Use CORS middleware
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:5173", //frontend url
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 // Middleware logger
 app.use(logger);
