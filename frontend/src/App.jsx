@@ -1,17 +1,18 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import NavBar from "./components/NavBar/NavBar";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import CreatePage from "./pages/CreatePage";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <div className="flex justify-center items-center text-red-500">
-        testing
-      </div>
+    <div data-theme="bumblebee" className="min-h-screen">
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/create" element={<CreatePage />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
