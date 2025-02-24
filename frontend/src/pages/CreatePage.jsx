@@ -20,9 +20,19 @@ const CreatePage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/products", product);
+      const response = await axios.post(
+        "http://localhost:8080/api/products",
+        product,
+      );
       console.log("Product created:", response.data);
-      // Optionally, reset the form or redirect the user
+
+      // Clear the form after creating the product
+      setProduct({
+        name: "",
+        price: "",
+        discount: "",
+        image: "",
+      });
     } catch (error) {
       console.error("Error creating product:", error);
     }
@@ -34,8 +44,8 @@ const CreatePage = () => {
         onSubmit={handleSubmit}
         className="fieldset bg-base-200 border-base-300 rounded-box h-auto w-xs border p-4"
       >
-        <legend className="fieldset-legend">
-          <span className="text-xl font-bold">Create Product </span>
+        <legend className="fieldset-legend justify-center">
+          <span className="text-center text-xl font-bold">Create Product </span>
         </legend>
 
         <label className="fieldset-label font-semibold">Name</label>
@@ -81,7 +91,7 @@ const CreatePage = () => {
           onChange={handleChange}
         />
 
-        <button type="submit" className="btn btn-neutral mt-4">
+        <button type="submit" className="btn btn-primary mt-4">
           Create
         </button>
       </form>
