@@ -18,7 +18,10 @@ const CreatePage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/products", product);
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/products`,
+        product,
+      );
       console.log("Product created:", response.data);
 
       // Show the alert
