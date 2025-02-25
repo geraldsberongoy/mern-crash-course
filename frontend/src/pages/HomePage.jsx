@@ -51,7 +51,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="mt-16 flex flex-1 items-center justify-center py-6 pt-8">
+    <div className="mt-16 flex flex-1 items-center justify-center px-4 py-6 pt-8">
       <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {products.map((product) => (
           <Card

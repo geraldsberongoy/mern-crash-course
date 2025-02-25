@@ -20,7 +20,9 @@ const ProductForm = ({ product, setProduct, handleSubmit }) => {
         </span>
       </legend>
 
-      <label className="fieldset-label font-semibold">Name</label>
+      <label className="fieldset-label font-semibold">
+        Name<span className="text-red-500">*</span>
+      </label>
       <input
         type="text"
         name="name"
@@ -31,7 +33,9 @@ const ProductForm = ({ product, setProduct, handleSubmit }) => {
         onChange={handleChange}
       />
 
-      <label className="fieldset-label font-semibold">Price</label>
+      <label className="fieldset-label font-semibold">
+        Price<span className="text-red-500">*</span>
+      </label>
       <input
         type="number"
         name="price"
@@ -52,7 +56,9 @@ const ProductForm = ({ product, setProduct, handleSubmit }) => {
         onChange={handleChange}
       />
 
-      <label className="fieldset-label font-semibold">Image Link</label>
+      <label className="fieldset-label font-semibold">
+        Image Link<span className="text-red-500">*</span>
+      </label>
       <input
         type="text"
         name="image"
