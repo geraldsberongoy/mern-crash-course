@@ -12,7 +12,7 @@ const ProductForm = ({ product, setProduct, handleSubmit }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="fieldset bg-base-200 border-base-300 rounded-box h-auto w-xs border p-4"
+      className="fieldset bg-base-200 border-base-300 rounded-box h-auto w-xs border-2 p-4"
     >
       <legend className="fieldset-legend justify-center">
         <span className="text-center text-xl font-bold">
@@ -69,7 +69,7 @@ const ProductForm = ({ product, setProduct, handleSubmit }) => {
         onChange={handleChange}
       />
 
-      <button type="submit" className="btn btn-success mt-4">
+      <button type="submit" className="btn btn-primary mt-4">
         {product._id ? "Save Changes" : "Create"}
       </button>
     </form>
