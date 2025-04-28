@@ -10,7 +10,7 @@ import Toast from "./Toast";
  */
 const ToastContainer = ({ notifications, removeNotification }) => {
   return (
-    <div className="toast-container fixed top-0 right-0  z-50 flex max-h-screen w-full max-w-xs h-screen flex-col-reverse overflow-hidden">
+    <div className="toast-container fixed top-0 right-0  z-40 flex max-h-screen w-full max-w-xs h-screen flex-col-reverse overflow-hidden">
       {notifications.map((notification) => (
         <Toast
           key={notification.id}
