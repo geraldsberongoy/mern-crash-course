@@ -68,6 +68,7 @@ const Card = ({
             </>
           )}
         </div>
+        <p className="text-sm text-gray-500">{product.creator ? product.creator : "Anonymous"}</p>
         <div className="card-actions justify-end pt-8">
           <button className="btn btn-primary">Buy Now</button>
         </div>

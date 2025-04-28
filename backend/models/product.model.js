@@ -20,6 +20,10 @@ const productSchema = new mongoose.Schema(
       required: false,
     },
     updatedPrice: { type: Number },
+    creator: {
+      type: String,
+      required: false,
+    },
   },
   {
     timestamps: true, // this will add created at and updated at fields

@@ -68,6 +68,18 @@ const ProductForm = ({ product, setProduct, handleSubmit }) => {
         required={true}
         onChange={handleChange}
       />
+      <label className="fieldset-label font-semibold">
+        Creator
+      </label>
+      <input
+        type="text"
+        name="creator"
+        className="input"
+        placeholder="Creator Name"
+        value={product.creator}
+        required={false}
+        onChange={handleChange}
+      />
 
       <button type="submit" className="btn btn-primary mt-4">
         {product._id ? "Save Changes" : "Create"}

@@ -9,6 +9,7 @@ const CreatePage = () => {
     price: "",
     discount: "",
     image: "",
+    creator: "",
   });
 
   const [productName, setProductName] = useState("");
@@ -33,6 +34,7 @@ const CreatePage = () => {
         price: "",
         discount: "",
         image: "",
+        creator: "",
       });
 
       // Hide the alert after 3 seconds
