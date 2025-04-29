@@ -19,8 +19,15 @@ const logger = (req, res, next) => {
   };
 
   // Get current timestamp
-  const timestamp = new Date().toISOString();
-  const formattedTime = timestamp.split("T")[1].split(".")[0]; // Extract time part only (HH:MM:SS)
+  // Get current timestamp in GMT+8
+  const timestamp = new Date().toLocaleString("en-US", {
+    timeZone: "Asia/Manila", // Philippines timezone (GMT+8)
+    hour12: true, // Use 24-hour format
+  });
+
+  // Extract just the time part if needed
+  const timeParts = timestamp.split(", ");
+  const formattedTime = timeParts[1]; // This will be your local time
 
   // Get method and setup color
   const method = req.method;
